@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Soundiry</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_user">UserActivity</string>
+    <string name="login_text">Login Page</string>
+    <string name="username_text">User Name</string>
+    <string name="password_text">Password</string>
+    <string name="attempt_text">Attempt</string>
+    <string name="button_login_text">Login</string>
+    <string name="screen_page_text">Welcome  to the second page</string>
+    <string name="title_activity_home_page">HomePageActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+
+</resources>

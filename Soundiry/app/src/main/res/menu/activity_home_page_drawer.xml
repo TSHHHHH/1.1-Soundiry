@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_writeNew"
+            android:icon="@drawable/ic_menu_create_black"
+            android:title="Write new Soundiry" />
+        <item
+            android:id="@+id/nav_userProfile"
+            android:icon="@drawable/ic_menu_user_profile_black"
+            android:title="User Profile" />
+        <item
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Setting" />
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/ic_black_star"
+            android:title="About Soundiry" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_exit"
+            android:title="Log Out"/>
+    </group>
+
+</menu>
