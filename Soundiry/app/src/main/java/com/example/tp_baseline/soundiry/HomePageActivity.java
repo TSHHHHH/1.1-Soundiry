@@ -29,11 +29,11 @@ public class HomePageActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         setTitle("Soundiry");
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,21 +42,21 @@ public class HomePageActivity extends AppCompatActivity
             }
         });
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         //use list view to display all files in Soundiry storage folder.
         ListView lv;
-        ArrayList<String> FilesInFolder = GetFiles(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Soundiry/");
-        lv = (ListView) findViewById(R.id.lvDisplay);
+        ArrayList<String> FilesInFolder = GetFiles(Environment.getExternalStorageDirectory() + "/Soundiry/");
+        lv = findViewById(R.id.lvDisplay);
 
-        lv.setAdapter(new ArrayAdapter<String>(this,
+        lv.setAdapter(new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, FilesInFolder));
 
         //Reverse order of List
@@ -130,7 +130,7 @@ public class HomePageActivity extends AppCompatActivity
             startActivity(intent);
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
@@ -143,16 +143,16 @@ public class HomePageActivity extends AppCompatActivity
 
     //get files from Soundiry storage folder
     public ArrayList<String> GetFiles(String DirectoryPath) {
-        ArrayList<String> MyFiles = new ArrayList<String>();
+        ArrayList<String> MyFiles = new ArrayList<>();
         File f = new File(DirectoryPath);
 
-        f.mkdirs();
+        if(!f.exists()){
+            f.mkdirs();
+        }
+
         File[] files = f.listFiles();
-        if (files.length == 0)
-            return null;
-        else {
-            for (int i = 0; i < files.length; i++)
-                MyFiles.add(files[i].getName());
+        if (files.length > 0){
+            for (File file : files) MyFiles.add(file.getName());
         }
 
         return MyFiles;
